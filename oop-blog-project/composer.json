@@ -2,7 +2,7 @@
     "name": "md.nayem/oop-blog-project",
     "autoload": {
         "psr-4": {
-            "MdNayem\\OopBlogProject\\": "src/"
+            "Appp\\": "src/"
         }
     },
     "authors": [
@@ -11,5 +11,8 @@
             "email": "nayemtp@gmail.com"
         }
     ],
-    "require": {}
+    "require": { "php": "^8.1"}
 }
+
+
+
