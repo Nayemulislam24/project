@@ -2,6 +2,8 @@
 
 // use Appp\wellcome;
 
+use Appp\database;
+
 include_once "inc/header.php";
 include_once "inc/slider.php";
 require __DIR__ . '/vendor/autoload.php';
@@ -9,7 +11,7 @@ require __DIR__ . '/vendor/autoload.php';
 // $obj = new Wellcome();
 // echo $obj->sayheworld();
 
-
+$obj = new database();
 
 ?>
 
