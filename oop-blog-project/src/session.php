@@ -9,4 +9,31 @@ class session
     {
         $_SESSION[$key] = $value;
     }
+    public static function get($key)
+    {
+        if (isset($_SESSION[$key])) {
+            return $_SESSION[$key];
+        } else {
+            return false;
+        }
+    }
+    public static function loginCheack()
+    {
+        self::init();
+        if (self::get('login') == true) {
+            header('location:index.php');
+        }
+    }
+    public static function checkSession()
+    {
+        self::init();
+        if (self::get('login') == false) {
+            self::destroy();
+        }
+    }
+    public static function destroy()
+    {
+        session_destroy();
+        header('location:login.php');
+    }
 }
