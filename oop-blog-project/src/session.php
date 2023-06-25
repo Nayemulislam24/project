@@ -1,4 +1,7 @@
 <?php
+
+namespace appp;
+
 class session
 {
     public static function init()

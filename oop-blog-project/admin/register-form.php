@@ -1,3 +1,19 @@
+<?php
+
+use Appp\register;
+
+
+require_once __DIR__ . '../../vendor/autoload.php';
+$obj = new register();
+$register = new register();
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $addUser = $register->addUser($_POST);
+}
+
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 
