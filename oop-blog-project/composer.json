@@ -11,8 +11,6 @@
             "email": "nayemtp@gmail.com"
         }
     ],
-    "require": { "php": "^8.1"}
+    "require": { "php": "^8.1",
+        "phpmailer/phpmailer": "^6.8"}
 }
-
-
-
