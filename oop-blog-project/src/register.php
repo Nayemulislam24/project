@@ -28,28 +28,32 @@ class register
         $this->formet = new formet();
     }
 
+
+
+
     public function addUser($data)
     {
         // $this->table->string('image')->nullable();
 
         function sendemailVarification($name, $email, $v_token)
         {
-            function clean_string($string)
-            {
-                $bad = array("content-type", "bcc:", "to:", "cc:", "href");
-                return str_replace($bad, "", $string);
-            }
+            // function clean_string($string)
+            // {
+            //     $bad = array("content-type", "bcc:", "to:", "cc:", "href");
+            //     return str_replace($bad, "", $string);
+            // }
             $mail = new PHPMailer(true);
 
             try {
                 $mail->SMTPDebug = SMTP::DEBUG_SERVER;
                 $mail->isSMTP();
-                $mail->Host  = 'smtp.gmail.com';
+                $mail->Host = 'ssl://smtp.gmail.com:465';
                 $mail->SMTPAuth = true;
                 $mail->Username = 'nayemtp@gmail.com';
                 $mail->Password = '922129ma#python';
                 $mail->SMTPSecure = 'tls';
                 $mail->Port  = 587;
+
 
                 $mail->setFrom('nayemtp@gmail.com', $name);
                 $mail->addAddress($email);
@@ -88,7 +92,7 @@ class register
 
 
 
-            // $mail = new PHPMailer(true);
+            $mail = new PHPMailer(true);
             // try {
             //Server settings
             // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
@@ -142,6 +146,7 @@ class register
             $check_email_query = "SELECT * FROM tbl_user Where email = '$email'";
             $result_query = $this->db->select($check_email_query);
             if ($result_query->num_rows > 0) {
+
                 $error = "This Email is alrady Exisit";
                 return $error;
                 header("location:register-form.php");
