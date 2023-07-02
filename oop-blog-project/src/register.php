@@ -33,34 +33,29 @@ class register
 
     public function addUser($data)
     {
-        // $this->table->string('image')->nullable();
-
         function sendemailVarification($name, $email, $v_token)
         {
-            // function clean_string($string)
-            // {
-            //     $bad = array("content-type", "bcc:", "to:", "cc:", "href");
-            //     return str_replace($bad, "", $string);
-            // }
+
             $mail = new PHPMailer(true);
 
             try {
-                $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+                $mail->SMTPDebug = 1;
                 $mail->isSMTP();
-                $mail->Host = 'ssl://smtp.gmail.com:465';
+                $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
                 $mail->Username = 'nayemtp@gmail.com';
-                $mail->Password = '922129ma#python';
+                $mail->Password = 'ncijjcoivnetqjjv';
                 $mail->SMTPSecure = 'tls';
                 $mail->Port  = 587;
 
-
+                $mail->isHTML(true);
                 $mail->setFrom('nayemtp@gmail.com', $name);
+                $mail->Subject = 'The verification code';
+
                 $mail->addAddress($email);
                 // $mail->addAddress('***********', 'Name');
 
-                $mail->isHTML(true);
-                $mail->Subject = 'The verification code';
+
                 // $mail->Body = 'HTML message body in <b>bold</b> ';
                 // $mail->AltBody = 'Body in plain text for non-HTML mail clients';
 
@@ -92,7 +87,7 @@ class register
 
 
 
-            $mail = new PHPMailer(true);
+            // $mail = new PHPMailer(true);
             // try {
             //Server settings
             // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
@@ -145,7 +140,7 @@ class register
         } else {
             $check_email_query = "SELECT * FROM tbl_user Where email = '$email'";
             $result_query = $this->db->select($check_email_query);
-            if ($result_query->num_rows > 0) {
+            if (!empty($result_query) && $result_query->num_rows > 0) {
 
                 $error = "This Email is alrady Exisit";
                 return $error;
