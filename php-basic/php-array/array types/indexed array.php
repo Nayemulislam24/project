@@ -11,9 +11,11 @@ $coloers =array("red","blue","green","yellow","Blackl",50);
 // print_r($coloers);
 // echo "<pre>";
  $n=6;
+ echo "<ul>";
 for($i = 0; $i<$n;$i++){
-    echo $coloers[$i] . "<br>";
+    echo "<li> $coloers[$i] </li>";
 }
+echo "</ul>";
 
 
 
