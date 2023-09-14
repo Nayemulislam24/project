@@ -31,7 +31,7 @@ echo "<h1>array_key_exsits then if else</h2>";
 echo "<br>";
 
 $a=array("Volvo"=>"XC90","BMW"=>"X5");
-if (array_key_exists("BMW",$a))
+if (key_exists("BMW",$a))
   {
   echo "Key exists!";
   }
