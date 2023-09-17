@@ -39,3 +39,5 @@ else
   {
   echo "Key does not exist!";
   }
+
+  echo "<h1>array_key_last</h2>";

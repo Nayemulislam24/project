@@ -20,4 +20,6 @@ $result=array_intersect_assoc($a1,$a2);
 echo "<pre>";
 print_r($result);
 echo "</pre>";
+
+
 ?>
