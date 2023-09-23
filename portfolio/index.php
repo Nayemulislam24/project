@@ -55,6 +55,36 @@
                 </div>
             </div>
         </section>
+        <!-- what i do section -->
+        <section class="what-i-do">
+            <h3 class="section-title">What I do</h3>
+            <p class="section-description">I have more than 10 years experience building software for clients all over the world. Below is a quick overview of my main technical skill sets and technologies i use. Want to find out more about my experience? Check out my online resume and project portfolio.</p>
+            <!-- .skills-container>.skill*4>img+p.skill-title+p.skill-description>lorem15 -->
+            <div class="skils-container">
+                <div class="skill">
+                    <img src="" alt="">
+                    <p class="skill-title"></p>
+                    <p class="skill-discription">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint, ipsum! Sit cupiditate sunt dolor laboriosam.</p>
+                </div>
+                <div class="skill">
+                    <img src="" alt="">
+                    <p class="skill-title"></p>
+                    <p class="skill-discription">Quidem ab error ut voluptas, possimus, optio accusamus repudiandae quia nobis quo minus soluta dicta.</p>
+                </div>
+                <div class="skill">
+                    <img src="" alt="">
+                    <p class="skill-title"></p>
+                    <p class="skill-discription">Ipsa, itaque amet perspiciatis quam maxime sed consectetur fuga dolorum numquam suscipit eos molestiae corporis.</p>
+                </div>
+                <div class="skill">
+                    <img src="" alt="">
+                    <p class="skill-title"></p>
+                    <p class="skill-discription">Quibusdam quo assumenda deserunt sint expedita possimus eos? Maxime veritatis culpa perspiciatis voluptates, molestias neque.</p>
+                </div>
+            </div>
+
+        </section>
+        </section>
     </main>
 
 </body>
