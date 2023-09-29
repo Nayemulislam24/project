@@ -10,14 +10,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#dataTable').DataTable({
+            // $('#dataTable').DataTable({
                 // dom: 'Bfrtip',
                 // buttons: [
                 //     'copyHtml5',
                 //     'excelHtml5'
 
                 // ]
-            });
+            // });
         });
     </script>
 </body>

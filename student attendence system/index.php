@@ -1,12 +1,16 @@
 <?php
 include 'inc/header.php';
 include 'lib/database.php';
+// include "config/config.php";
 ?>
+
 <?php
 $object = new Database();
 $sql = "SELECT * FROM students";
 $data_show = $object->select($sql);
-// echo $sql;
+// echo "<pre>";
+// var_dump($data_show);
+// echo "</pre>";
 // die();
 ?>
 <div class="panel panel-default">
@@ -31,22 +35,22 @@ $data_show = $object->select($sql);
                 <tbody>
                     <?php
                     if ($data_show) {
-                        while($rows = $data_show->fetch_assoc())
-                    
-                    ?>
-                    <tr>
-                        <td><?php echo $rows['id']?></td>
-                        <td><?php echo $rows['name']?></td>
-                        <td><?php echo $rows['roll']?></td>
-                        <td>
-                            <input class="form-check-input" type="radio" name="Attend" value="<?php echo $rows['roll']?>" id="">P
-                            <input class="form-check-input" type="radio" name="Absent" value="<?php echo $rows['roll']?>" id="">A
-                        </td>
-                    </tr>
-                    <?php
-                    }else{
-                        echo '<p style="  background-color: #ffcccc;color: #ff0000;   padding: 10px; border: 1px solid #ff0000; border-radius: 4px; margin-bottom: 10px;">Sorry,Data not available !!.</p>';
+                        while ($rows = $data_show->fetch_assoc()) {
 
+                    ?>
+                            <tr>
+                                <td><?php echo $rows['id']; ?></td>
+                                <td><?php echo $rows['name']; ?></td>
+                                <td><?php echo $rows['roll']; ?></td>
+                                <td>
+                                    <input class="form-check-input" type="radio" name="Attend[<?php echo $rows['roll']; ?>]" value="" id="">P
+                                    <input class="form-check-input" type="radio" name="Absent[<?php echo $rows['roll']; ?>]" value="" id="">A
+                                </td>
+                            </tr>
+                    <?php
+                        }
+                    } else {
+                        echo '<p style="  background-color: #ffcccc;color: #ff0000;   padding: 10px; border: 1px solid #ff0000; border-radius: 4px; margin-bottom: 10px;">Sorry,Data not available !!.</p>';
                     } ?>
 
                 </tbody>
