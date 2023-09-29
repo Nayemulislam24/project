@@ -15,8 +15,9 @@ $data_show = $object->select($sql);
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">
+        
         <h2>
-            <a href="#" class="btn btn-success">Add Student</a>
+            <a href="#addEmployeeModal" data-toggle="modal" class="btn btn-success">Add Student</a>
 
             <a href="#" class="btn btn-info pull-right">View All</a>
         </h2>
@@ -26,10 +27,11 @@ $data_show = $object->select($sql);
             <table class="table table-striped" id="dataTable">
                 <thead>
                     <tr>
-                        <th width="25%">Sereal</th>
-                        <th width="25%">Student Name</th>
-                        <th width="25%">Roll</th>
-                        <th width="25%">Attendence</th>
+                        <th width="20%">Sereal</th>
+                        <th width="20%">Student Name</th>
+                        <th width="20%">Roll</th>
+                        <th width="20%">Attendence</th>
+                        <th width="20%">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,6 +48,11 @@ $data_show = $object->select($sql);
                                     <input class="form-check-input" type="radio" name="Attend[<?php echo $rows['roll']; ?>]" value="" id="">P
                                     <input class="form-check-input" type="radio" name="Absent[<?php echo $rows['roll']; ?>]" value="" id="">A
                                 </td>
+                                <td>
+                                    <a onclick="edit_data('<?php echo $rows['id']; ?>')"><i class="material-icons icon" title="Edit">&#xE254;</i></a>
+
+                                    <a onclick="delete_data('<?php echo $rows['id']; ?>')"><i class="material-icons icon" title="Delete">&#xE872;</i></a>
+                                </td>
                             </tr>
                     <?php
                         }
@@ -59,7 +66,33 @@ $data_show = $object->select($sql);
             <button class="btn btn-primary text-center" type="submit">Submit</button>
         </form>
     </div>
+   
 </div>
+<div id="addEmployeeModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="fromreset">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Roll</label>
+                            <input type="number" class="form-control" id="add_roll">
+                        </div>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" id="add_name" value="">
+                        </div>                      
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+
+                        <input type="button" class="btn btn-success" onclick="insert_sub()" value="Add">
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
 <?php
 include 'inc/footer.php';
 ?>
