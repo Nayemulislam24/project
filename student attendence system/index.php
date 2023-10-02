@@ -6,8 +6,9 @@ $status = NULL;
 ?>
 <?php
 $object = new Database();
-$sql = "SELECT * FROM students";
+$sql = "SELECT * FROM students order by roll";
 $data_show = $object->select($sql);
+
 // echo "<pre>";
 // var_dump($data_show);
 // echo "</pre>";
@@ -35,16 +36,18 @@ $data_show = $object->select($sql);
                 </thead>
                 <tbody>
                     <?php
+                    $SL=0;
                     if ($data_show) {
                         while ($rows = $data_show->fetch_assoc()) {
+                            $SL++
                     ?>
                             <tr>
-                                <td><?php echo $rows['id']; ?></td>
+                                <td><?php echo $SL; ?></td>
                                 <td><?php echo $rows['name']; ?></td>
                                 <td><?php echo $rows['roll']; ?></td>
                                 <td>
-                                    <input class="form-check-input" type="radio" name="Attend[<?php echo $rows['roll']; ?>]" value="" id="">P
-                                    <input class="form-check-input" type="radio" name="Absent[<?php echo $rows['roll']; ?>]" value="" id="">A
+                                    <input class="form-check-input" type="radio" name="attend[<?php echo $rows['roll']; ?>]" value="Present" id="attend">P
+                                    <input class="form-check-input" type="radio"  name="attend[<?php echo $rows['roll']; ?>]" value="Absent" id="attend">A
                                 </td>
                                 <td>
                                     <a onclick="edit_data('<?php echo $rows['id']; ?>')"><i class="material-icons icon" title="Edit">&#xE254;</i></a>
@@ -59,7 +62,7 @@ $data_show = $object->select($sql);
                     } ?>
                 </tbody>
             </table>
-            <button class="btn btn-primary text-center" type="submit">Submit</button>
+            <button class="btn btn-primary text-center"  onclick="insert_attendenc()" type="submit">Submit</button>
         </form>
     </div>
 </div>
@@ -110,6 +113,29 @@ $data_show = $object->select($sql);
                     sweetAlertError(result.msg);
                 }                
             }
+        });
+    }
+    function insert_attendenc(){
+        let attend = $("#attend").val();
+        // alert(attend);
+        $.ajax({
+            url: "ajax_result.php",
+            type: "POST",
+            data:{
+                attend:attend,
+                type:"addAttendenc"
+            },
+            dataType:'json',
+            success:function(result){
+                if (result.status == "success") {
+                    $("#dataTable").load(" #dataTable > *");
+                    sweetAlertSuccess(result.msg);
+                }else {
+                    sweetAlertError(result.msg);
+                }
+            }
+
+
         });
     }
 </script>
