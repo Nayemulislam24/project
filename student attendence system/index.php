@@ -23,7 +23,7 @@ $data_show = $object->select($sql);
     </div>
     <div class="showMessage"></div>
     <div class="panel-body">
-        <form action="" method="post" >
+        <form action="" method="post">
             <table class="table table-striped" id="dataTable" name="dataTable">
                 <thead>
                     <tr>
@@ -36,7 +36,7 @@ $data_show = $object->select($sql);
                 </thead>
                 <tbody>
                     <?php
-                    $SL=0;
+                    $SL = 0;
                     if ($data_show) {
                         while ($rows = $data_show->fetch_assoc()) {
                             $SL++
@@ -47,7 +47,7 @@ $data_show = $object->select($sql);
                                 <td><?php echo $rows['roll']; ?></td>
                                 <td>
                                     <input class="form-check-input" type="radio" name="attend[<?php echo $rows['roll']; ?>]" value="Present" id="attend">P
-                                    <input class="form-check-input" type="radio"  name="attend[<?php echo $rows['roll']; ?>]" value="Absent" id="attend">A
+                                    <input class="form-check-input" type="radio" name="attend[<?php echo $rows['roll']; ?>]" value="Absent" id="attend">A
                                 </td>
                                 <td>
                                     <a onclick="edit_data('<?php echo $rows['id']; ?>')"><i class="material-icons icon" title="Edit">&#xE254;</i></a>
@@ -62,7 +62,7 @@ $data_show = $object->select($sql);
                     } ?>
                 </tbody>
             </table>
-            <button class="btn btn-primary text-center"  onclick="insert_attendenc()" type="submit">Submit</button>
+            <button class="btn btn-primary text-center" onclick="insert_attendenc()" type="submit">Submit</button>
         </form>
     </div>
 </div>
@@ -104,35 +104,37 @@ $data_show = $object->select($sql);
             },
             dataType: 'json',
             success: function(result) {
-                  console.log(result);
+                console.log(result);
                 if (result.status == "success") {
                     $("#dataTable").load(" #dataTable > *");
                     $("#loadInput").load(" #loadInput > *");
                     sweetAlertSuccess(result.msg);
                 } else {
                     sweetAlertError(result.msg);
-                }                
+                }
             }
         });
     }
-    function insert_attendenc(){
+
+    function insert_attendenc() {
         let attend = $("#attend").val();
         // alert(attend);
         $.ajax({
             url: "ajax_result.php",
             type: "POST",
-            data:{
-                attend:attend,
-                type:"addAttendenc"
+            data: {
+                attend: attend,
+                type: "addAttendenc"
             },
-            dataType:'json',
-            success:function(result){
-                if (result.status == "success") {
-                    $("#dataTable").load(" #dataTable > *");
-                    sweetAlertSuccess(result.msg);
-                }else {
-                    sweetAlertError(result.msg);
-                }
+            dataType: 'text',
+            success: function(result) {
+                console.log(result);
+                // if (result.status == "success") {
+                //     $("#dataTable").load(" #dataTable > *");
+                //     sweetAlertSuccess(result.msg);
+                // } else {
+                //     sweetAlertError(result.msg);
+                // }
             }
 
 
