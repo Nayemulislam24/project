@@ -115,28 +115,28 @@ $data_show = $object->select($sql);
             }
         });
     }
-    // function insert_attendenc(){
-    //     let attend = $("#attend").val();
-    //     // alert(attend);
-    //     $.ajax({
-    //         url: "ajax_result.php",
-    //         type: "POST",
-    //         data:{
-    //             attend:attend,
-    //             type:"addAttendenc"
-    //         },
-    //         dataType:'text',
-    //         success:function(result){
-    //             console.log(result);
-    //             if (result.status == "success") {
-    //                 $("#dataTable").load(" #dataTable > *");
-    //                 sweetAlertSuccess(result.msg);
-    //             }else {
-    //                 sweetAlertError(result.msg);
-    //             }
-    //         }
-    //     });
-    // }
+    function insert_attendenc(){
+        let attend = $("#attend").val();
+        // alert(attend);
+        $.ajax({
+            url: "ajax_result.php",
+            type: "POST",
+            data:{
+                attend:attend,
+                type:"addAttendenc"
+            },
+            dataType:'text',
+            success:function(result){
+                console.log(result);
+                if (result.status == "success") {
+                    $("#dataTable").load(" #dataTable > *");
+                    sweetAlertSuccess(result.msg);
+                }else {
+                    sweetAlertError(result.msg);
+                }
+            }
+        });
+    }
 </script>
 <?php
 include 'inc/footer.php';
