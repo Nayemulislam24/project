@@ -21,11 +21,12 @@ if ($_POST['type'] == 'add_student') {
   echo json_encode($arr);
 }
 if ($_POST['type'] == 'addAttendenc') {
-  $attend = $_POST['attend'];
-  if ($attend == ''){
+  $status = $_POST['status'];
+  $roll = $_POST['roll'];
+  if ($roll == ''){
     $arr = array('status' => 'error', 'msg' => 'Field Can Not Be Blank And Avoid Previous Name.');
   } else {
-    $sql_Attend = "INSERT INTO `students_attendenc`(`attend`) VALUES ('$attend')";   
+    $sql_Attend = "UPDATE `students_attendenc` SET `attend`='{$status}' WHERE `roll`='{$roll}'";   
     $insertResultAttend = $database->insert($sql_Attend);  
     if ($insertResultAttend) {
       $arr = array('status' => 'success', 'msg' => 'Added Successfully.');

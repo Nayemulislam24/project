@@ -46,8 +46,8 @@ $data_show = $object->select($sql);
                                 <td><?php echo $rows['name']; ?></td>
                                 <td><?php echo $rows['roll']; ?></td>
                                 <td>
-                                    <input class="form-check-input" type="radio" name="attend[<?php echo $rows['roll']; ?>]" value="Present" id="attend">P
-                                    <input class="form-check-input" type="radio"  name="attend[<?php echo $rows['roll']; ?>]" value="Absent" id="attend">A
+                                    <input class="form-check-input" type="radio" name="attend[<?php echo $rows['roll']; ?>]" value="Present" id="attend" onclick="presentEmployee('<?php echo $rows['roll']; ?>', 'P');">P
+                                    <input class="form-check-input" type="radio"  name="attend[<?php echo $rows['roll']; ?>]" value="Absent" id="attend"  onclick="presentEmployee('<?php echo $rows['roll']; ?>', 'A');">A
                                 </td>
                                 <td>
                                     <a onclick="edit_data('<?php echo $rows['id']; ?>')"><i class="material-icons icon" title="Edit">&#xE254;</i></a>
@@ -90,6 +90,27 @@ $data_show = $object->select($sql);
 </div>
 
 <script>
+    function presentEmployee(roll, status){
+        $.ajax({
+            url: "ajax_result.php",
+            type: "POST",
+            data:{
+                roll:roll,
+                status:status,
+                type:"addAttendenc"
+            },
+            dataType:'text',
+            success:function(result){
+                console.log(result);
+                if (result.status == "success") {
+                    $("#dataTable").load(" #dataTable > *");
+                    sweetAlertSuccess(result.msg);
+                }else {
+                    sweetAlertError(result.msg);
+                }
+            }
+        });
+    }
     function insert_sub() {
         let add_name = $("#add_name").val();
         let add_roll = $("#add_roll").val();
