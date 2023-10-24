@@ -1,8 +1,8 @@
 {
-    "name": "md.nayem/log-regis",
+    "name": "md.nayem/mvc-framework",
     "autoload": {
         "psr-4": {
-            "Appp\\": "app/"
+            "MdNayem\\MvcFramework\\": "src/"
         }
     },
     "authors": [
@@ -11,7 +11,5 @@
             "email": "nayemtp@gmail.com"
         }
     ],
-    "require": {
-        "php": "^8.1"
-    }    
+    "require": {}
 }
