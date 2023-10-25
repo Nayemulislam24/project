@@ -2,8 +2,12 @@
 
 <?php include "system/libs/main.php";
 
-$object = new main();
-$object->test();
+
+$url= $_GET['url'];
+$url_arry=explode('/',$url);
+echo "<pre>";
+print_r($url_arry);
+echo "</pre>";
 ?>
 
 
