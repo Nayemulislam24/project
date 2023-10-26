@@ -7,6 +7,7 @@ $url= $_GET['url'];
 $url_arry=explode('/',$url);
 echo "<pre>";
 print_r($url_arry);
+print_r($url_arry);
 echo "</pre>";
 ?>
 
