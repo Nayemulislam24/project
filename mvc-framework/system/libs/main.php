@@ -1,14 +1,12 @@
 <?php
-class main{
-    
-    
-    public function __construct() {
+class main
+{
+    public function __construct()
+    {
         echo "Hello mvc php framework 2 <br> ";
-  
     }
-    function test(){
+    function test()
+    {
         echo "Hello mvc php framework ";
-
     }
-
 }

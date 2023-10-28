@@ -1,8 +1,11 @@
 <?php
-class testController
+class testController extends Dcontroller
 {
     public function __construct()
     {
-      echo "test controller sytestem 2 ";
+        // parent::__construct();
+    }
+    public function testMethod(){
+        echo "test Method dinamically  system ";
     }
 }

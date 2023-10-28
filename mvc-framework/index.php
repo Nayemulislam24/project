@@ -1,13 +1,19 @@
 <?php include "inc/header.php"; ?>
 
-<?php include "system/libs/main.php";
+<?php 
+include "system/libs/main.php";
+include "system/libs/Dcontroller.php";
 
 
 $url= $_GET['url'];
 $url = rtrim($url,'/');
 $url=explode('/',$url);
 include 'app/controlers/'.$url[0].'.php';
+
 $obj = new $url[0]();
+
+// echo $url[1]."<br>";
+$obj->$url[1]();
 
 
 
@@ -27,19 +33,6 @@ $obj = new $url[0]();
 // echo $method=$url[1]."<br>";
 // echo $pramiter=$url[2]."<br>";
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <?php include "inc/footer.php"; ?>
