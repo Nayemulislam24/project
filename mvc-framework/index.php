@@ -4,12 +4,28 @@
 
 
 $url= $_GET['url'];
-$url_arry=explode('/',$url);
-echo "<pre>";
-print_r($url_arry);
-echo "</pre>";
-print_r($url_arry);
-print_r($url_arry);
+$url = rtrim($url,'/');
+$url=explode('/',$url);
+include 'app/controlers/'.$url[0].'.php';
+$obj = new $url[0]();
+
+
+
+
+
+
+
+
+
+
+
+
+// echo "<pre>";
+// print_r($url_arry);
+// echo "</pre>";
+// echo $controlers=$url[0]."<br>";
+// echo $method=$url[1]."<br>";
+// echo $pramiter=$url[2]."<br>";
 ?>
 
 
