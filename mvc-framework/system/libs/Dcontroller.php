@@ -3,9 +3,10 @@
 // main controller
 
 class Dcontroller
-{
+{ 
+protected $load = array();
     public function __construct()
     {
-        echo "test parent  controller.<br>";
+        $this->load = new load();
     }
 }
