@@ -7,7 +7,7 @@
 </head>
 <body>
   <header class="headeroption">
-    <h2>Advanced PHP OOP Tutorial [MVC Framework]</h2>
+    <!-- <h2>Advanced PHP OOP Tutorial [MVC Framework]</h2> -->
 	
   </header>
 <div class="content">

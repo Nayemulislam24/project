@@ -9,25 +9,15 @@ $url= $_GET['url'];
 $url = rtrim($url,'/');
 $url=explode('/',$url);
 include 'app/controlers/'.$url[0].'.php';
-
 $obj = new $url[0]();
-
-// echo $url[1]."<br>";
-$obj->$url[1]();
-
-
-
-
-
-
-
-
+$url_call_method = $url[1];
+$obj->$url_call_method($url[2]);
 
 
 
 
 // echo "<pre>";
-// print_r($url_arry);
+// print_r($url);
 // echo "</pre>";
 // echo $controlers=$url[0]."<br>";
 // echo $method=$url[1]."<br>";

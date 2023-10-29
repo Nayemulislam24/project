@@ -5,7 +5,10 @@ class testController extends Dcontroller
     {
         // parent::__construct();
     }
-    public function testMethod(){
-        echo "test Method dinamically  system ";
+    public function testMethod($testParamiter){
+        echo "test Method dinamically  system $testParamiter";
+    }
+    public function testMethod2($testParamiter){
+        echo "test Method dinamically  system complete $testParamiter";
     }
 }
