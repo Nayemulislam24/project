@@ -1,5 +1,5 @@
 <?php
-
+include("load.php");
 // main controller
 
 class Dcontroller

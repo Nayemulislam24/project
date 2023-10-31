@@ -6,7 +6,7 @@ class load
 {
     public function __construct()
     {
-        // echo "test parent  controller.<br>";
+        echo " load class test parent  controller.<br>";
     }
     public function view(){
         

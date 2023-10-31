@@ -7,7 +7,7 @@ class index extends Dcontroller
         parent::__construct();
     }
     public function index(){
-        echo "text index controllers";
+        echo "text defult index page  controllers";
     }
     public function home(){
        $this->load->view("home");
