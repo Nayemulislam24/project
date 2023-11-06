@@ -1,12 +1,12 @@
 <?php
-include("load.php");
+include("process.php");
 // main controller
 
 class Dcontroller
 { 
-protected $load = array();
+protected $process = array();
     public function __construct()
     {
-        $this->load = new load();
+        $this->process = new process();
     }
 }

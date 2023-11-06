@@ -10,6 +10,6 @@ class index extends Dcontroller
         echo "text defult index page  controllers";
     }
     public function home(){
-       $this->load->view("home");
+       $this->process->view("home");
     }
 }

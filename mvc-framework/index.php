@@ -2,6 +2,7 @@
 <?php
 include "system/libs/main.php";
 include "system/libs/Dcontroller.php";
+include "system/libs/process.php";
 $url = isset($_GET['url']) ? $_GET['url'] : NULL;
 if ($url != NULL) {
     $url = rtrim($url, '/');
@@ -10,7 +11,7 @@ if ($url != NULL) {
     unset($url);
 }
 if (isset($url[0])) {
-    include 'app/controlers/' . $url[0] . '.php';
+    include 'app/controlers/'. $url[0] . '.php';
     $obj = new $url[0]();
     $url_call_method = $url[1];
     if (isset($url[2])) {
