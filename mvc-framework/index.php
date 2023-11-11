@@ -2,7 +2,7 @@
 <?php
 include "system/libs/main.php";
 include "system/libs/Dcontroller.php";
-include "system/libs/process.php";
+// include "system/libs/process.php";
 $url = isset($_GET['url']) ? $_GET['url'] : NULL;
 if ($url != NULL) {
     $url = rtrim($url, '/');

@@ -7,6 +7,6 @@ class Dcontroller
 protected $process = array();
     public function __construct()
     {
-        $this->process = new process();
+        // $this->process = new process();
     }
 }
